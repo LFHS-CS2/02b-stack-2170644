@@ -1,5 +1,4 @@
 import java.util.EmptyStackException;
-
 /**
  * ArrayStack should implement the Stack interface.
  * You should write your own test cases in ArrayStackTest
@@ -10,7 +9,6 @@ public class ArrayStack<E> implements Stack<E>
 {
     Object[] stack = new Object[100];
     int index = -1;
-    int size = stack.length;
 
     public boolean isEmpty(){
       return index == -1;
@@ -36,9 +34,9 @@ public class ArrayStack<E> implements Stack<E>
       if(this.isEmpty()){
         throw new EmptyStackException();
       } 
-      E ob = (E)stack[index];
-      stack[index] = null;
-      index--;
+      E ob = (E)stack[index--];
+      // stack[index] = null;
+      // index--;
       return ob;
     }
 
@@ -46,11 +44,10 @@ public class ArrayStack<E> implements Stack<E>
      * Add the given value to the stack. 
      */
     public void push (E ob){
-      if(index >= (size - 1)){
+      if(index >= (stack.length - 1)){
        System.out.println("Stack is full"); 
       } else {
-        stack[index] = ob;
-        index++; 
+        stack[++index] = ob;
       }
     }
 }
