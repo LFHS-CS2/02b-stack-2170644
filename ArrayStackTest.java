@@ -22,13 +22,18 @@ public class ArrayStackTest
     @Test
     public void test_example() {
       //  ArrayStack stack = new ArrayStack();
-      //  stack.push(1);
-      //   assertTrue("Stack should not be empty", !stack.isEmpty());
-      //   stack.push(2);
-      //   stack.push(3);
-      //   assertEquals("the value should be 3", stack.pop(), 3);
-      //   assertEquals("the value should be 2", stack.pop(), 2);
-      //   assertEquals("the value should be 1", stack.pop(), 1);
+          ArrayStack stack = new ArrayStack();
+          assertTrue("Stack should be empty", stack.isEmpty());
+          stack.push(1);
+          assertTrue("Stack should not be empty", !stack.isEmpty());
+          assertEquals("Peek should equal 1", stack.peekTop(), 1);
+          assertEquals("Pop should equal 1", stack.pop(), 1);
+          assertTrue("Stack should be empty", stack.isEmpty());
+
+          for(int i = 0; i < 100; i++){
+            stack.push(i);
+          }
+        
         // assertEquals("they should be equal", 5, 5);
         // // when comparing doubles, the last number is a threshold
         // //   of how close the numbers should be to be considered equal
